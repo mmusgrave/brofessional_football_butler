@@ -91,6 +91,7 @@ def espn_bot(function):
 
 
 if __name__ == '__main__':
+    print("This is Musgrave's version of the Brofessional Fantasy Football Butler")
     from gamedaybot.espn.scheduler import scheduler
     espn_bot("init")
     scheduler()
