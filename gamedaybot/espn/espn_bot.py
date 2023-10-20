@@ -12,8 +12,6 @@ from espn_api.football import League
 
 def espn_bot(function):
     data = get_env_vars()
-    bot = GroupMe(data['bot_id'])
-    slack_bot = Slack(data['slack_webhook_url'])
     discord_bot = Discord(data['discord_webhook_url'])
     swid = data['swid']
     espn_s2 = data['espn_s2']
@@ -48,8 +46,6 @@ def espn_bot(function):
         print(espn.optimal_team_scores(league, full_report=True))
         if waiver_report and swid != '{1}' and espn_s2 != '1':
             print(espn.get_waiver_report(league, faab))
-        # bot.send_message("Testing")
-        # slack_bot.send_message("Testing")
         # discord_bot.send_message("Testing")
 
     text = ''
@@ -91,8 +87,6 @@ def espn_bot(function):
     if text != '' and not test:
         messages=utils.str_limit_check(text, data['str_limit'])
         for message in messages:
-            bot.send_message(message)
-            slack_bot.send_message(message)
             discord_bot.send_message(message)
 
 
