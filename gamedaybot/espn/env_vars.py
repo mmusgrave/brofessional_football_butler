@@ -127,6 +127,14 @@ def get_env_vars():
 
     data['waiver_report'] = waiver_report
 
+    for num in range(1, 15):
+        try:
+            prop_name = os.environ[f"PROP_WEEK_{num}"]
+        except KeyError:
+            prop_name = "There is no prop for this week"
+
+        data[f'PROP_WEEK_{num}'] = prop_name
+
     try:
         data['init_msg'] = os.environ["INIT_MSG"]
     except KeyError:
