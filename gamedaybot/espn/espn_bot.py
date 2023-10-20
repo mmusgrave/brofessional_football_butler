@@ -75,6 +75,8 @@ def espn_bot(function):
     elif function == "get_waiver_report" and swid != '{1}' and espn_s2 != '1':
         faab = league.settings.faab
         text = espn.get_waiver_report(league, faab)
+    elif function == "get_weekly_prop_bet":
+        text = data[f'PROP_WEEK_{league.current_week}']
     elif function == "init":
         try:
             text = data["init_msg"]
