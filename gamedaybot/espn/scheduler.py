@@ -69,5 +69,9 @@ def scheduler():
                   day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
                   timezone=eastern_standard_timezone, replace_existing=True)
 
+    sched.add_job(espn_bot, 'cron', ['get_weekly_prop_bet'], id='weekly_prop_bet',
+                  day_of_week='wed, sun', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+                  timezone=eastern_standard_timezone, replace_existing=True)
+
     print("Ready!")
     sched.start()
