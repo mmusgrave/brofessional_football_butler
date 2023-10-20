@@ -73,5 +73,14 @@ def scheduler():
                   day_of_week='wed, sun', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
                   timezone=eastern_standard_timezone, replace_existing=True)
 
+    sched.add_job(espn_bot, 'cron', ['usa_wish_a_happy_6_9'], id='usa_happy_6_9',
+                  hour=12, start_date=f"{data['year']}-09-06", end_date=f"{data['year']}-09-06",
+                  timezone=eastern_standard_timezone, replace_existing=True)
+
+    next_year = data['year'] + 1
+    sched.add_job(espn_bot, 'cron', ['intl_wish_a_happy_6_9'], id='intl_happy_6_9',
+                  hour=12, start_date=f"{next_year}-06-09", end_date=f"{next_year}-06-09",
+                  timezone=eastern_standard_timezone, replace_existing=True)
+
     print("Ready!")
     sched.start()

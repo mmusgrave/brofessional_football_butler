@@ -77,6 +77,10 @@ def espn_bot(function):
         text = espn.get_waiver_report(league, faab)
     elif function == "get_weekly_prop_bet":
         text = data[f'PROP_WEEK_{league.current_week}']
+    elif function == "usa_wish_a_happy_6_9":
+        text = "Have a Happy American 6/9 Day Brofessional!"
+    elif function == "intl_wish_a_happy_6_9":
+        text = "Have a Happy International 6/9 Day Brofessional!"
     elif function == "init":
         try:
             text = data["init_msg"]
